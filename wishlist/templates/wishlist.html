@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<nav class="navbar fixed-top navbar-light" style="background-color:rgb(255, 30, 255);font-family:courier;text-align:center;">
+    <form class="form-inline" >
+    <a class="navbar-brand" href="/wishlist" style="background-color:rgb(43, 3, 43);color:white;font-family:garamond;text-align:center;border:5px solid Tomato;">Home</a>
+    <a class="navbar-brand" href="logout/" style="background-color:rgb(43, 3, 43);color:white;font-family:georgia;text-align:center;border:5px solid Tomato;">Logout</a>
+    </form>
+    <p style="font-size:200%;"><i>{{nama}}</i></p>
+</nav>
+
 <h5>Nama: </h5>
 <p>{{nama}}</p>
-
+<br >
 <table>
-    <tr>
+    <tr style="background-color:rgb(43, 3, 43);color:white;">
     <th>Nama Barang</th>
     <th>Harga Barang</th>
     <th>Deskripsi</th>
@@ -19,5 +28,9 @@
     </tr>
 {% endfor %}
 </table>
+<br>
+<h6>Sesi terakhir login: {{ last_login }}</h6>
+
+<button style="background-color:rgb(43, 3, 43);color:white;font-family:'Brush Script MT'"><a href="{% url 'wishlist:logout' %}">Logout</a></button>
 
 {% endblock content %}

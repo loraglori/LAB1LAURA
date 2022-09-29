@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class = "login">
+
+<h1 style="background-color:tomato;font-size:600%;font-family:courier;text-align:center;border:5px solid Tomato;"><b>Login</b></h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td style="text-align:center;background-color:rgb(221, 255, 30);font-size:300%;">Username   : </td>
+            <td style="text-align:center;background-color:rgba(30, 248, 255, 0.795);font-size:300%;"><input type="text" name="username  " placeholder="Username" class="form-control"></td>
+        </tr>
+                
+        <tr>
+            <td style="text-align:center;background-color:rgb(255, 165, 30);font-size:300%;">Password: </td>
+            <td style="text-align:center;background-color:rgb(135, 30, 255);font-size:300%;"><input type="password" name="password" placeholder="Password" class="form-control"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:center;background-color:rgb(255, 30, 255);font-size:300%;"><input class="btn login_btn" type="submit" value="Login"></td>
+        </tr>
+    </table>
+</form>
+
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}		
+    
+<br>
+<i style="text-align:center;">Belum mempunyai akun? &#128517;</i> <a href="{% url 'wishlist:register' %}" style="background-color:blueviolet;color:white;">Buat Akun</a>
+
+</div>
+
+{% endblock content %}
